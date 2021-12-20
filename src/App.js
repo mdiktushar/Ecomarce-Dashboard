@@ -1,24 +1,20 @@
 import "./App.css";
-import Header from "./Header";
-import Login from "./Login";
-import Register from "./Register";
-import AddProduct from "./AddProduct";
-import UpdateProduct from "./UpdateProduct";
-
+import Login from "./components/Login";
+import Register from "./components/Register";
+import AddProduct from "./components/AddProduct";
+import UpdateProduct from "./components/UpdateProduct";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Protected from "./components/Protected";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
-        <h1>Tushar</h1>
-
         <Route path="/add">
-          <AddProduct />
+          <Protected Cmp = {AddProduct}/>
         </Route>
         <Route path="/update">
-          <UpdateProduct />
+        <Protected Cmp = {UpdateProduct}/>
         </Route>
         <Route path="/login">
           <Login />
