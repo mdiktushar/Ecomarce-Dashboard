@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 
 const Header = () => {
   const data = JSON.parse(localStorage.getItem("user-info"));
-  console.log(data)
+
   const history = useHistory();
   const logout = () => {
     localStorage.clear();
