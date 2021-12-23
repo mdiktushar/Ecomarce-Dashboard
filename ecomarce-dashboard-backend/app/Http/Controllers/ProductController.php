@@ -21,4 +21,10 @@ class ProductController extends Controller
         $product->save();
         return $product;
     }
+
+    public function list(Type $var = null)
+    {
+        # code...
+        return product::all();
+    }
 }
