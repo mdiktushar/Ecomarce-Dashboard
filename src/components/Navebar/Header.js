@@ -18,6 +18,7 @@ const Header = () => {
           <Nav className="me-auto nav_bar_wrapper">
             {localStorage.getItem("user-info") ? (
               <>
+                <Link to="/">Home</Link>
                 <Link to="/add">Add Products</Link>
                 <Link to="/update">Update Product</Link>
               </>
