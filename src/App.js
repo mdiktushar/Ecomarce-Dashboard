@@ -18,14 +18,14 @@ function App() {
           <Route path="/update">
             <Protected Cmp={UpdateProduct} />
           </Route>
-          <Route path="/">
-            <Protected Cmp={ProductList} />
-          </Route>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/registration">
             <Register />
+          </Route>
+          <Route path="/">
+            <Protected Cmp={ProductList} />
           </Route>
         </Switch>
       </Router>
