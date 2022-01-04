@@ -12,7 +12,7 @@ class ProductController extends Controller
     public function addProduct(Request $req)
     {
         # code...
-        $req->file('img')->store('products');
+
         $product = new product;
         $product->name = $req->name;
         $product->price = $req->price;
@@ -48,5 +48,21 @@ class ProductController extends Controller
             return Product::find($id);
         }
         return ["result" => "No product found"];
+    }
+
+    public function updateProduct($id, Request $req)
+    {
+        # code...
+        
+        $product = Product::find($id);
+        $product->name = $req->name;
+        $product->price = $req->price;
+        $product->description = $req->description;
+        if($req->file('img')){
+            $product->file_path = $req->file('img')->store('products');
+        }
+        
+        $product->save();
+        return $product;
     }
 }
