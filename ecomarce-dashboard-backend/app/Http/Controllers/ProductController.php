@@ -39,4 +39,14 @@ class ProductController extends Controller
         }
         
     }
+
+    public function getProcuct($id)
+    {
+        # code...
+        $result = Product::find($id);
+        if($result) {
+            return Product::find($id);
+        }
+        return ["result" => "No product found"];
+    }
 }
