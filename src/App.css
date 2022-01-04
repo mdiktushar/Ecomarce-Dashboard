@@ -50,3 +50,11 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.update {
+  background-color: #a76105;
+  color: wheat;
+  padding: 4px;
+  border-radius: 5px;
+  cursor: pointer;
+}

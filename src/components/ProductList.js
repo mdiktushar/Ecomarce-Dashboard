@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Navebar/Header";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
   const [data, setData] = useState([]);
-  useEffect( () => {
-    getData()
+  useEffect(() => {
+    getData();
   }, []);
 
-  const deleteOperation = async(id) => {
-    let result = await fetch("http://127.0.0.1:8000/api/products/"+id, {
-      method: 'DELETE'
-    })
-    result = await result.json()
-    console.log(result)
-    getData()
+  const deleteOperation = async (id) => {
+    let result = await fetch("http://127.0.0.1:8000/api/products/" + id, {
+      method: "DELETE",
+    });
+    result = await result.json();
+    console.log(result);
+    getData();
   };
 
   const getData = async () => {
     let result = await fetch("http://127.0.0.1:8000/api/products");
     result = await result.json();
     setData(result);
-  }
+  };
   return (
     <div>
       <Header />
@@ -35,7 +36,8 @@ const ProductList = () => {
               <th>Image</th>
               <th>Description</th>
               <th>Price</th>
-              <th>Operations</th>
+              <th>Operations-1</th>
+              <th>Operations-2</th>
             </tr>
           </thead>
           <tbody>
@@ -55,13 +57,16 @@ const ProductList = () => {
                 <td>{item.price}</td>
                 <td>
                   <span
-                    onClick={
-                      ()=>{deleteOperation(item.id)}
-                    }
+                    onClick={() => {
+                      deleteOperation(item.id);
+                    }}
                     className="delete"
                   >
                     Delete
                   </span>
+                </td>
+                <td>
+                  <Link to={'update/'+item.id}><span className="update">Update</span></Link>
                 </td>
               </tr>
             ))}
